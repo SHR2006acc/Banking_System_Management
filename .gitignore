@@ -1,2 +1,6 @@
 #Qodo local files
 .qodo/
+
+__pycache__/
+*.pyc
+banque.db
