@@ -138,7 +138,7 @@ l'historique restent parfaitement cohérents.
   de vue »), barre d'état (base + compteurs en direct), routage
   paresseux des écrans et raccourcis clavier (`Ctrl+1..9`, `F5`).
 - **Deux espaces, une seule base** (`app/ui/session.py`) : espace
-  **Administrateur** (5 écrans de gestion) et espace **Client** (ses
+  **Administrateur** (4 écrans de gestion) et espace **Client** (ses
   comptes, son relevé, ses opérations) ; bascule à chaud, registre de
   navigation filtré par rôle (`EntreeNav.roles`) ; une opération
   saisie côté client apparaît côté admin dès la bascule — c'est le
@@ -187,9 +187,9 @@ Espace client (bascule « Changer de vue ») :
 ## 6. Structure du projet
 
 ```
-bank system/
+Banking_System_Management/
 ├── main.py                     # assemblage : données → métier → interface
-├── requirements.txt            # vide : stdlib uniquement
+├── requirements.txt            # stdlib uniquement (aucune dépendance)
 ├── README.md                   # ce rapport
 ├── app/
 │   ├── db/
