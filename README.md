@@ -245,3 +245,7 @@ bank system/
 | Concurrence | SQLite et connexion unique : application bureautique mono-utilisateur |
 | Tests | `unittest` stdlib, base éphémère, aucune dépendance externe |
 | Seed | Uniquement si `banque.db` est absente à l'ouverture ; `seed_demo_data` est un no-op sur une base déjà peuplée |
+
+---
+
+Built by Rayan Akioud, Mohamed Rayan Htalal and Ahmed Marouan — ENSAM students, 2026
