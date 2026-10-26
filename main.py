@@ -22,7 +22,6 @@ from app.ui.dashboard_view import DashboardView
 from app.ui.clients_view import ClientsView
 from app.ui.comptes_view import ComptesView
 from app.ui.operations_view import OperationsView
-from app.ui.galerie_view import GalerieView
 from app.ui.mes_comptes_view import MesComptesView
 from app.ui.mes_operations_view import MesOperationsView
 from app.ui.nouvelle_operation_view import NouvelleOperationView
@@ -43,7 +42,6 @@ NAVIGATION = (
     EntreeNav("clients", "Clients", ClientsView),
     EntreeNav("comptes", "Comptes", ComptesView),
     EntreeNav("operations", "Opérations", OperationsView),
-    EntreeNav("galerie", "Galerie (dév)", GalerieView),
     # -- Espace client --------------------------------------------------
     EntreeNav("mes_comptes", "Mes comptes", MesComptesView,
               roles=("client",)),

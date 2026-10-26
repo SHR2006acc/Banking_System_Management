@@ -1,10 +1,9 @@
 """Session utilisateur (Rôle 3) : « qui est devant l'interface ? »
 
-Deux espaces, comme le prévoit l'interface cible du projet d'équipe
-(``docs/user-interface.md``) :
+Deux espaces distincts, servis par la même base :
 
   * **Administrateur** — tous les écrans de gestion : tableau de bord,
-    clients, comptes, opérations, galerie ;
+    clients, comptes, opérations ;
   * **Client** — ses comptes, son relevé, ses opérations.
 
 Le sélecteur (bouton « Changer de vue » de l'en-tête) bascule de l'un à

@@ -1,6 +1,7 @@
-#Qodo local files
-.qodo/
-
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Base de données locale (recréée puis peuplée au premier lancement)
 banque.db

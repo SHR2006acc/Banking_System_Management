@@ -72,7 +72,6 @@ def principal() -> None:
         ("clients", "clients"),
         ("comptes", "comptes"),
         ("operations", "operations"),
-        ("galerie", "galerie"),
     ):
         app.shell.afficher(cle)
         capturer(nom)

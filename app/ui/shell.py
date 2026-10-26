@@ -4,7 +4,7 @@
 latérale professionnelle, en-tête avec utilisateur, barre d'état, et
 routage entre les écrans.
 
-Concepts clés (à expliquer en soutenance) :
+Concepts clés :
   * **Registre** — ``EntreeNav`` décrit chaque écran (clé, libellé,
     classe, rôles autorisés). La barre latérale ET le routeur sont
     construits à partir de cette source unique : ajouter un écran =
@@ -41,9 +41,9 @@ from app.ui.utilitaires import lier_recursif
 class EntreeNav:
     """Description d'un écran dans la navigation du shell.
 
-    ``roles`` porte le cloisonnement Client / Administrateur du projet
-    d'équipe : le shell ne construit que les entrées dont un des rôles
-    autorisés est celui de la session courante.
+    ``roles`` porte le cloisonnement Client / Administrateur : le shell
+    ne construit que les entrées dont un des rôles autorisés est celui
+    de la session courante.
     """
 
     cle: str
@@ -216,7 +216,7 @@ class AppShell(ttk.Frame):
         afficher_toast(
             self,
             "Déconnexion : elle sera reliée au module d'authentification "
-            "(projet d'équipe).", ton="info")
+            "(évolution prévue).", ton="info")
 
     def _maj_nav(self, survol_cle: str | None = None) -> None:
         """Recolore tous les items selon l'état actif / survolé / normal."""

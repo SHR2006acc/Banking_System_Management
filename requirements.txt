@@ -1,0 +1,3 @@
+# Projet 100% stdlib Python (sqlite3, tkinter, unittest)
+# Aucune dépendance externe requise.
+# Python >= 3.10 recommandé (dataclasses, type hints).

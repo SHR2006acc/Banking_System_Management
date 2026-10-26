@@ -1,18 +1,17 @@
-"""Vérification fonctionnelle complète (M0-M2 + Espace client).
+"""Vérification fonctionnelle complète (bout en bout).
 
 Recrée une base de démonstration TEMPORAIRE (jamais touché à banque.db),
 assemble l'application hors écran et déroule 60+ vérifications :
 
   * charte appliquée (styles, polices, jetons) ;
   * relecture des montants (milliers, millions, séparateurs) ;
-  * 5 écrans admin construits et remplis ;
+  * les 4 écrans administrateur construits et remplis ;
   * bascule de session Admin <-> Client (registre filtré, en-tête,
     bus purgé/ré-abonné, navigation reconstruite) ;
   * les 3 écrans client ; dépôt + virement RÉELS depuis l'espace
     client, puis contrôle côté administrateur (même base).
 
-Lancement :  cd "bank system" && ~/micromamba/envs/ai_env/bin/python \
-            outils/verif_fonctionnelle.py
+Lancement :  python3 outils/verif_fonctionnelle.py
 """
 from __future__ import annotations
 
@@ -116,10 +115,10 @@ def principal() -> None:
     bus.abonner(shell)
 
     cles_admin = list(shell._registre)
-    verifier("registre admin = 5 écrans",
-             cles_admin == ["dashboard", "clients", "comptes", "operations",
-                            "galerie"], str(cles_admin))
-    verifier("nav admin : 5 items construits", len(shell._items_nav) == 5)
+    verifier("registre admin = 4 écrans",
+             cles_admin == ["dashboard", "clients", "comptes", "operations"],
+             str(cles_admin))
+    verifier("nav admin : 4 items construits", len(shell._items_nav) == 4)
 
     for cle in cles_admin:
         shell.afficher(cle)
@@ -129,20 +128,14 @@ def principal() -> None:
                  vue is not None and type(vue).__name__ == attendu)
         verifier(f"écran {cle} packé",
                  vue is not None and vue.winfo_manager() == "pack")
-    verifier("titre d'en-tête = page Galerie",
-             shell._titre_page.cget("text") == "Galerie de style")
+    verifier("titre d'en-tête = page Opérations",
+             shell._titre_page.cget("text") == "Opérations")
 
     # Tableaux admin remplis depuis le service
     vue_clients = shell._vues["clients"]
     verifier("Clients : lignes = clients en base",
              len(vue_clients.arbre.get_children())
              == len(service.read_clients()))
-    vue_galerie = shell._vues["galerie"]
-    vue_galerie._remplir_tableau()
-    verifier("Galerie : 4 lignes de démo",
-             vue_galerie._tableau.nombre() == 4)
-    vue_galerie._vider_tableau()
-    verifier("Galerie : état vide", vue_galerie._tableau.nombre() == 0)
 
     stats_admin_avant = service.statistiques()
     verifier("barre d'état synchronisée",
@@ -344,8 +337,8 @@ def principal() -> None:
     # --- 8. Retour admin : les opérations client sont visibles -------------
     stats = service.statistiques()
     shell.changer_session(Session("admin"))
-    verifier("retour admin : registre complet (5)",
-             len(shell._registre) == 5)
+    verifier("retour admin : registre complet (4)",
+             len(shell._registre) == 4)
     verifier("retour admin : en-tête Administrateur",
              shell._etiquette_nom.cget("text") == "Administrateur")
     texte_etat = shell._etat_donnees.cget("text")
